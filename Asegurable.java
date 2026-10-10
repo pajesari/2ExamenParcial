@@ -1,4 +1,4 @@
 public interface Asegurable {
-    // Método que obliga a calcular el costo de la póliza de seguro
+    // Método que calcular la poliza de seguro
     double calcularPolizaMensual();
 }

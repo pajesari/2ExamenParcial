@@ -7,8 +7,12 @@ public class Montacargas extends Vehiculo {
     }
 
     // Getters y Setters
-    public int getHorasUso() { return horasUso; }
-    public void setHorasUso(int horasUso) { this.horasUso = horasUso; }
+    public int getHorasUso() {
+         return horasUso; 
+        }
+    public void setHorasUso(int horasUso) {
+         this.horasUso = horasUso; 
+        }
     
     // Método para incrementar las horas de uso cuando sube paquetes exitosamente
     public void incrementarHorasUso() {

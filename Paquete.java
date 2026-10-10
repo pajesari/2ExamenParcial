@@ -11,9 +11,17 @@ public abstract class Paquete {
     public abstract double calcularTarifaEnvio();
 
     // Getters y Setters
-    public String getIdRastreo() { return idRastreo; }
-    public void setIdRastreo(String idRastreo) { this.idRastreo = idRastreo; }
+    public String getIdRastreo() { 
+       return idRastreo; 
+    }
+    public void setIdRastreo(String idRastreo) {
+         this.idRastreo = idRastreo;
+         }
     
-    public double getPesoKg() { return pesoKg; }
-    public void setPesoKg(double pesoKg) { this.pesoKg = pesoKg; }
+    public double getPesoKg() {
+     return pesoKg; 
+    }
+    public void setPesoKg(double pesoKg) {
+         this.pesoKg = pesoKg; 
+        }
 }

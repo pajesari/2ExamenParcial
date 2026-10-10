@@ -19,6 +19,10 @@ public class PaqueteAltoValor extends Paquete implements Asegurable {
     }
 
     // Getters y Setters
-    public double getValorDeclarado() { return valorDeclarado; }
-    public void setValorDeclarado(double valorDeclarado) { this.valorDeclarado = valorDeclarado; }
+    public double getValorDeclarado() {
+         return valorDeclarado; 
+        }
+    public void setValorDeclarado(double valorDeclarado) {
+         this.valorDeclarado = valorDeclarado; 
+        }
 }

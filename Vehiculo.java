@@ -8,9 +8,18 @@ public abstract class Vehiculo {
     }
 
     // Getters y Setters
-    public String getMatricula() { return matricula; }
-    public void setMatricula(String matricula) { this.matricula = matricula; }
+    public String getMatricula() {
+         return matricula; 
+     }
+    public void setMatricula(String matricula) {
+         this.matricula = matricula;
+        
+    }
     
-    public double getCapacidadMaximaKg() { return capacidadMaximaKg; }
-    public void setCapacidadMaximaKg(double capacidadMaximaKg) { this.capacidadMaximaKg = capacidadMaximaKg; }
+    public double getCapacidadMaximaKg() {
+        return capacidadMaximaKg;
+    }
+    public void setCapacidadMaximaKg(double capacidadMaximaKg) {
+         this.capacidadMaximaKg = capacidadMaximaKg;
+    }
 }

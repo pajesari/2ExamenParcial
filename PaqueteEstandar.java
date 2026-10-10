@@ -13,6 +13,10 @@ public class PaqueteEstandar extends Paquete {
     }
 
     // Getters y Setters
-    public String getZonaEntrega() { return zonaEntrega; }
-    public void setZonaEntrega(String zonaEntrega) { this.zonaEntrega = zonaEntrega; }
+    public String getZonaEntrega() {
+         return zonaEntrega; 
+        }
+    public void setZonaEntrega(String zonaEntrega) {
+        this.zonaEntrega = zonaEntrega; 
+    }
 }
