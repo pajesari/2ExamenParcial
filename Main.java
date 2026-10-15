@@ -13,7 +13,7 @@ public class Main {
 
         while (opcion != 6) {
             try {
-                System.out.println("\n=====> CEDIS: CENTRO DE DISTRIBUCION Y TRANSPORTE <=====");
+                System.out.println("\nCENTRO DE DISTRIBUCION Y TRANSPORTE ");
                 System.out.println("1. Ingresar nuevo paquete");
                 System.out.println("2. Registrar vehículo");
                 System.out.println("3. Mostrar inventario y calcular tarifas");
@@ -42,24 +42,23 @@ public class Main {
                         transportarPaquetes(teclado, inventario, flotilla);
                         break;
                     case 6:
-                        System.out.println("\nSaliendo del sistema...");
+                        System.out.println("\nSaliendo del sistema");
                         break;
                     default:
-                        System.out.println("\nOpción no válida. Intenta de nuevo.");
+                        System.out.println("\nopcion no valida intente de nuevo");
                 }
             } catch (Exception e) {
-                System.out.println("\n[ERROR] Entrada inválida. Por favor ingresa un número válido.");
-                teclado.nextLine(); // Limpiar la basura del teclado para que no se cicle
+                System.out.println("\nerrorÑ porfavor ingrese un valor valido ");
+                teclado.nextLine(); // Limpiar la basura del teclado 
                 opcion = -1;
             }
         }
         teclado.close();
     }
 
-    // 1. Ingresar nuevo paquete
     private static void ingresarNuevoPaquete(Scanner teclado, List<Paquete> inventario) {
-        System.out.println("\n--- INGRESAR NUEVO PAQUETE ---");
-        System.out.println("1. Paquete Estándar");
+        System.out.println("\nIngrese nuevo Paquete");
+        System.out.println("1. Paquete Estandar");
         System.out.println("2. Paquete de Alto Valor");
         System.out.print("Selecciona el tipo de paquete: ");
         int tipo = teclado.nextInt();
@@ -78,7 +77,7 @@ public class Main {
 
             PaqueteEstandar paquete = new PaqueteEstandar(idRastreo, pesoKg, zonaEntrega);
             inventario.add(paquete);
-            System.out.println("¡Paquete Estándar guardado exitosamente en el inventario!");
+            System.out.println("Paquete Estandar guardado");
         } else if (tipo == 2) {
             System.out.print("Ingresa el valor declarado ($): ");
             double valorDeclarado = teclado.nextDouble();
@@ -86,25 +85,24 @@ public class Main {
 
             PaqueteAltoValor paquete = new PaqueteAltoValor(idRastreo, pesoKg, valorDeclarado);
             inventario.add(paquete);
-            System.out.println("¡Paquete de Alto Valor guardado exitosamente en el inventario!");
+            System.out.println("Paquete de Alto Valor guardado!");
         } else {
-            System.out.println("Tipo de paquete no válido. Operación cancelada.");
+            System.out.println("Tipo de paquete inexistente");
         }
     }
 
-    // 2. Registrar vehículo
     private static void registrarVehiculo(Scanner teclado, List<Vehiculo> flotilla) {
-        System.out.println("\n--- REGISTRAR VEHÍCULO ---");
+        System.out.println("\nRegistrar vehiculo");
         System.out.println("1. Montacargas");
-        System.out.println("2. Camión de Reparto");
-        System.out.print("Selecciona el tipo de vehículo: ");
+        System.out.println("2. Camion de Reparto");
+        System.out.print("Selecciona el tipo de vehiculo: ");
         int tipo = teclado.nextInt();
         teclado.nextLine();
 
-        System.out.print("Ingresa la matrícula: ");
+        System.out.print("Ingresa la matricula: ");
         String matricula = teclado.nextLine();
 
-        System.out.print("Ingresa la capacidad máxima de carga en Kg: ");
+        System.out.print("Ingresa la capacidad maxima de carga en Kg: ");
         double capacidadMaximaKg = teclado.nextDouble();
         teclado.nextLine();
 
@@ -115,7 +113,7 @@ public class Main {
 
             Montacargas montacargas = new Montacargas(matricula, capacidadMaximaKg, horasUso);
             flotilla.add(montacargas);
-            System.out.println("¡Montacargas registrado exitosamente en la flotilla!");
+            System.out.println("Montacargas registrado");
         } else if (tipo == 2) {
             System.out.print("Ingresa el valor del vehículo ($): ");
             double valorVehiculo = teclado.nextDouble();
@@ -123,76 +121,71 @@ public class Main {
 
             CamionReparto camion = new CamionReparto(matricula, capacidadMaximaKg, valorVehiculo);
             flotilla.add(camion);
-            System.out.println("¡Camión de Reparto registrado exitosamente en la flotilla!");
+            System.out.println("Camion de Reparto registrado");
         } else {
-            System.out.println("Tipo de vehículo no válido. Operación cancelada.");
+            System.out.println("Tipo de vehiculo no existente.");
         }
     }
 
-    // 3. Mostrar inventario y calcular tarifas (Polimorfismo)
     private static void mostrarInventarioYTarifas(List<Paquete> inventario) {
-        System.out.println("\n--- INVENTARIO Y TARIFAS ---");
+        System.out.println("\nInventario y tarifas");
         if (inventario.isEmpty()) {
-            System.out.println("El inventario está vacío.");
+            System.out.println("El inventario est vacio");
             return;
         }
 
         for (Paquete p : inventario) {
             System.out.println("ID Rastreo: " + p.getIdRastreo() +
-                               " | Peso: " + p.getPesoKg() + " Kg" +
-                               " | Tarifa de Envío: $" + p.calcularTarifaEnvio() + " MXN");
+                               "  Peso: " + p.getPesoKg() + " Kg" +
+                               "  Tarifa de Envío: $" + p.calcularTarifaEnvio() + " mxn");
         }
     }
 
-    // 4. Auditoría de Seguros (Interfaces)
     private static void auditoriaSeguros(List<Paquete> inventario, List<Vehiculo> flotilla) {
-        System.out.println("\n--- AUDITORÍA DE SEGUROS ---");
+        System.out.println("\nAuditoria de Seguros");
         double costoTotalPolizas = 0.0;
         int cantidadAsegurables = 0;
 
-        System.out.println("\n>> Paquetes Asegurables:");
+        System.out.println("\n>Paquetes Asegurables:");
         for (Paquete p : inventario) {
             if (p instanceof Asegurable) {
                 Asegurable asegurable = (Asegurable) p;
                 double poliza = asegurable.calcularPolizaMensual();
                 costoTotalPolizas += poliza;
                 cantidadAsegurables++;
-                System.out.println(" - [Paquete Alto Valor] ID: " + p.getIdRastreo() +
-                                   " | Póliza Mensual: $" + poliza + " MXN");
+                System.out.println(" Paquete Alto Valor ID: " + p.getIdRastreo() +
+                                   "  Póliza Mensual: $" + poliza + " mxn");
             }
         }
 
-        System.out.println("\n>> Vehículos Asegurables:");
+        System.out.println("\n Vehiculos Asegurables:");
         for (Vehiculo v : flotilla) {
             if (v instanceof Asegurable) {
                 Asegurable asegurable = (Asegurable) v;
                 double poliza = asegurable.calcularPolizaMensual();
                 costoTotalPolizas += poliza;
                 cantidadAsegurables++;
-                System.out.println(" - [Camión de Reparto] Matrícula: " + v.getMatricula() +
-                                   " | Póliza Mensual: $" + poliza + " MXN");
+                System.out.println(" Camion de Reparto Matricula: " + v.getMatricula() +
+                                   "  Poliza Mensual: $" + poliza + " mxn");
             }
         }
 
         if (cantidadAsegurables == 0) {
-            System.out.println("No hay elementos asegurables registrados.");
+            System.out.println("No hay elementos asegurables .");
         } else {
-            System.out.println("\n-------------------------------------------");
             System.out.println("Costo Total a pagar a la aseguradora: $" + costoTotalPolizas + " MXN");
-            System.out.println("-------------------------------------------");
+            
         }
     }
 
-    // 5. Transportar Paquetes - Despacho (Uso de Iteradores)
     private static void transportarPaquetes(Scanner teclado, List<Paquete> inventario, List<Vehiculo> flotilla) {
-        System.out.println("\n--- TRANSPORTAR PAQUETES (DESPACHO) ---");
+        System.out.println("\nTrsnaportar paquetes");
 
         if (inventario.isEmpty()) {
-            System.out.println("No hay paquetes en el inventario para despachar.");
+            System.out.println("No hay paquetes en el inventario ");
             return;
         }
 
-        // Filtrar y mostrar camiones
         List<CamionReparto> camiones = new ArrayList<>();
         for (Vehiculo v : flotilla) {
             if (v instanceof CamionReparto) {
@@ -200,7 +193,6 @@ public class Main {
             }
         }
 
-        // Filtrar y mostrar montacargas
         List<Montacargas> montacargasLista = new ArrayList<>();
         for (Vehiculo v : flotilla) {
             if (v instanceof Montacargas) {
@@ -209,27 +201,27 @@ public class Main {
         }
 
         if (camiones.isEmpty()) {
-            System.out.println("Error: No hay camiones de reparto registrados para el viaje.");
+            System.out.println("error no hay montacargas registrados ");
             return;
         }
 
         if (montacargasLista.isEmpty()) {
-            System.out.println("Error: No hay montacargas registrados para la maniobra.");
+            System.out.println("error no hay montacargas dosponibles");
             return;
         }
 
-        System.out.println("\nSelecciona el Camión de Reparto:");
+        System.out.println("\nSelecciona el Camion de Reparto:");
         for (int i = 0; i < camiones.size(); i++) {
             CamionReparto c = camiones.get(i);
-            System.out.println((i + 1) + ". Matrícula: " + c.getMatricula() +
+            System.out.println((i + 1) + ". Matricula: " + c.getMatricula() +
                                " | Capacidad: " + c.getCapacidadMaximaKg() + " Kg");
         }
-        System.out.print("Opción: ");
+        System.out.print("Opcion: ");
         int indiceCamion = teclado.nextInt() - 1;
         teclado.nextLine();
 
         if (indiceCamion < 0 || indiceCamion >= camiones.size()) {
-            System.out.println("Selección de camión inválida.");
+            System.out.println("Seleccion de camion invalida.");
             return;
         }
         CamionReparto camionSeleccionado = camiones.get(indiceCamion);
@@ -240,12 +232,12 @@ public class Main {
             System.out.println((i + 1) + ". Matrícula: " + m.getMatricula() +
                                " | Horas de uso actuales: " + m.getHorasUso());
         }
-        System.out.print("Opción: ");
+        System.out.print("Opcion: ");
         int indiceMontacargas = teclado.nextInt() - 1;
         teclado.nextLine();
 
         if (indiceMontacargas < 0 || indiceMontacargas >= montacargasLista.size()) {
-            System.out.println("Selección de montacargas inválida.");
+            System.out.println("Seleccion de montacargas invalida");
             return;
         }
         Montacargas montacargasSeleccionado = montacargasLista.get(indiceMontacargas);
@@ -253,29 +245,26 @@ public class Main {
         double capacidadRestante = camionSeleccionado.getCapacidadMaximaKg();
         int paquetesCargados = 0;
 
-        System.out.println("\nIniciando proceso de carga con Iterator...");
         System.out.println("Capacidad inicial del camión (" + camionSeleccionado.getMatricula() + "): " + capacidadRestante + " Kg");
 
-        // Uso estricto de Iterator
         Iterator<Paquete> iterador = inventario.iterator();
         while (iterador.hasNext()) {
             Paquete p = iterador.next();
             if (p.getPesoKg() <= capacidadRestante) {
-                // Se carga al camión y se retira del inventario (almacén)
                 capacidadRestante -= p.getPesoKg();
                 iterador.remove();
                 montacargasSeleccionado.incrementarHorasUso();
                 paquetesCargados++;
-                System.out.println(" [CARGADO] Paquete ID: " + p.getIdRastreo() +
-                                   " | Peso: " + p.getPesoKg() + " Kg | Capacidad restante: " + capacidadRestante + " Kg");
+                System.out.println(" Paquete ID: " + p.getIdRastreo() +
+                                   " Peso: " + p.getPesoKg() + " Kg | Capacidad restante: " + capacidadRestante + " Kg");
             } else {
-                System.out.println(" [EXCEDENTE / NO CABE] Paquete ID: " + p.getIdRastreo() +
-                                   " | Peso: " + p.getPesoKg() + " Kg (Supera la capacidad restante)");
+                System.out.println(" exedente d epeso Paquete ID: " + p.getIdRastreo() +
+                                   "  Peso: " + p.getPesoKg() + " Kg - sipera la capacidad");
             }
         }
 
-        System.out.println("\n--- RESUMEN DEL DESPACHO ---");
-        System.out.println("Paquetes cargados con éxito: " + paquetesCargados);
+        System.out.println("\nresumen de las operaciones");
+        System.out.println("Paquetes cargados con exito: " + paquetesCargados);
         System.out.println("Capacidad restante final del camión: " + capacidadRestante + " Kg");
         System.out.println("Nuevas horas de uso del Montacargas (" + montacargasSeleccionado.getMatricula() + "): " + montacargasSeleccionado.getHorasUso());
         System.out.println("Paquetes restantes en inventario: " + inventario.size());

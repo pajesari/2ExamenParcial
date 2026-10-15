@@ -14,7 +14,7 @@ public class PaqueteAltoValor extends Paquete implements Asegurable {
 
     @Override
     public double calcularPolizaMensual() {
-        // Regla: Es igual al 5% de su Valor Declarado
+        // Es igual al 5% de su valor
         return this.valorDeclarado * 0.05;
     }
 
