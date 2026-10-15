@@ -15,10 +15,10 @@ public class Main {
             try {
                 System.out.println("\nCENTRO DE DISTRIBUCION Y TRANSPORTE ");
                 System.out.println("1. Ingresar nuevo paquete");
-                System.out.println("2. Registrar vehículo");
+                System.out.println("2. Registrar vehiculo");
                 System.out.println("3. Mostrar inventario y calcular tarifas");
-                System.out.println("4. Auditoría de Seguros");
-                System.out.println("5. Transportar Paquetes (Despacho)");
+                System.out.println("4. Auditoria de Seguros");
+                System.out.println("5. Transportar Paquetes)");
                 System.out.println("6. Salir");
                 System.out.print("Elige una opción: ");
 
@@ -48,7 +48,7 @@ public class Main {
                         System.out.println("\nopcion no valida intente de nuevo");
                 }
             } catch (Exception e) {
-                System.out.println("\nerrorÑ porfavor ingrese un valor valido ");
+                System.out.println("\nerror porfavor ingrese un valor valido ");
                 teclado.nextLine(); // Limpiar la basura del teclado 
                 opcion = -1;
             }
@@ -174,7 +174,7 @@ public class Main {
             System.out.println("No hay elementos asegurables .");
         } else {
             System.out.println("Costo Total a pagar a la aseguradora: $" + costoTotalPolizas + " MXN");
-            
+
         }
     }
 
